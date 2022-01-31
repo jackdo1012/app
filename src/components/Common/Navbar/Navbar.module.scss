@@ -1,0 +1,187 @@
+@use "../../../scss/variables";
+@use "../../../scss/colors";
+
+.navbar {
+    height: variables.$nav-height;
+    display: flex;
+    justify-content: center;
+    background-color: colors.$dark-second-background;
+    position: relative;
+    z-index: 100;
+    border-bottom: 0.5px solid colors.$dark-border;
+
+    .navbarLeft {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 70vw;
+
+        .nav {
+            color: colors.$dark-text-color;
+            text-decoration: none;
+            font-size: 1.5rem;
+            height: variables.$nav-height;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.hover:hover {
+                opacity: 0.8;
+            }
+            &.hover.active {
+                color: colors.$dark-primary-color;
+            }
+        }
+    }
+    .navbarRight {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+        width: 30vw;
+
+        .nav {
+            color: colors.$dark-text-color;
+            text-decoration: none;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: variables.$nav-height;
+
+            &.notiNav {
+                height: auto;
+            }
+
+            a {
+                width: 2rem;
+                height: 2rem;
+                cursor: pointer;
+                color: colors.$dark-text-color;
+
+                &:visited {
+                    color: colors.$dark-text-color;
+                }
+                svg {
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                }
+            }
+            svg {
+                width: 2rem;
+                height: 2rem;
+                cursor: pointer;
+            }
+            .notiCount {
+                position: absolute;
+                z-index: 100;
+                width: calc(0.65rem * 2);
+                height: calc(0.65rem * 2);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1rem;
+                background-color: colors.$dark-primary-color;
+                color: colors.$dark-main-background;
+                bottom: -0.65rem;
+                right: -0.65rem;
+            }
+
+            &.hover:hover {
+                opacity: 0.8;
+            }
+            &.hover.active {
+                color: colors.$dark-primary-color;
+            }
+            .navBasicInfo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.8;
+                }
+                .navAvatar {
+                    height: calc(variables.$nav-height - 1.5rem);
+                    width: calc(variables.$nav-height - 1.5rem);
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .navUsername {
+                    margin-left: 0.5rem;
+                }
+            }
+            .dropDownBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    font-size: 2rem;
+                    cursor: pointer;
+                }
+            }
+            .navOverlay {
+                position: fixed;
+                inset: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+}
+@media screen and (max-width: 768px) {
+    .navbar {
+        .navbarRight {
+            .nav {
+                .navBasicInfo {
+                    .navUsername {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 478px) {
+    .navbar {
+        .navbarRight {
+            .nav {
+                .navBasicInfo {
+                    .navAvatar {
+                        height: calc(variables.$nav-height - 1.75rem);
+                        width: calc(variables.$nav-height - 1.75rem);
+                    }
+                    .navUsername {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .navbar {
+        .navbarRight {
+            .nav {
+                .navBasicInfo {
+                    .navAvatar {
+                        height: calc(variables.$nav-height - 2rem);
+                        width: calc(variables.$nav-height - 2rem);
+                    }
+                    .navUsername {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+    }
+}

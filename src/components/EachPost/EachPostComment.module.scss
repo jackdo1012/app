@@ -1,0 +1,226 @@
+@use "../../scss/colors";
+
+.commetAndInput {
+    padding: 3rem;
+    border-radius: 3rem;
+    z-index: 1;
+
+    .inputContainer {
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0 1rem;
+
+        .commentInput {
+            resize: none;
+            background-color: colors.$dark-second-background;
+            border-radius: 1rem;
+            width: calc(70vw - 6rem);
+            color: colors.$dark-text-color;
+            font-size: 1.2rem;
+            padding: calc((5vh - 1.2rem * 161.8 / 100) / 2) 0 0 1rem;
+            line-height: 161.8%;
+            height: 5vh;
+            overflow: scroll;
+            border: 2px solid colors.$dark-border;
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &:focus {
+                outline: 1px solid colors.$dark-text-color;
+            }
+        }
+        .addComment {
+            background-color: colors.$dark-second-background;
+            color: colors.$dark-text-color;
+            border-radius: 1rem;
+            font-size: 1.3rem;
+            width: 10vw;
+            cursor: pointer;
+            border: 2px solid colors.$dark-border;
+        }
+    }
+
+    .commentsList {
+        list-style: none;
+        position: relative;
+        overflow: scroll;
+        border-radius: 1rem;
+        margin: 0 1rem;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .comment {
+            background-color: colors.$dark-second-background;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            .commentHeading {
+                padding: 0.5rem;
+                display: flex;
+                cursor: pointer;
+                width: fit-content;
+
+                .avatar {
+                    width: 3rem;
+                    height: 3rem;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 2px solid colors.$dark-text-color;
+                }
+
+                .userAndTime {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 0.3rem;
+                    height: 3rem;
+                    gap: 0.5rem;
+
+                    .user {
+                        height: 1rem;
+                    }
+                    .time {
+                        opacity: 0.7;
+                        height: 1rem;
+                    }
+                }
+            }
+            .commentValue {
+                padding: 0.5rem;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .commetAndInput {
+        .inputContainer {
+            .addComment {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 478px) {
+    .commetAndInput {
+        padding: 2rem 1rem;
+        .inputContainer {
+            flex-direction: column;
+            height: calc(10vh + 0.5rem);
+
+            .commentInput {
+                width: calc(70vw - 2rem);
+                font-size: 1.2rem;
+                height: 5vh;
+            }
+            .addComment {
+                font-size: 1rem;
+                width: calc(70vw - 2rem);
+                height: 5vh;
+            }
+        }
+
+        .commentsList {
+            .comment {
+                .commentHeading {
+                    padding: 0.5rem;
+
+                    .avatar {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
+
+                    .userAndTime {
+                        gap: 0;
+                        height: 2.5rem;
+
+                        .user {
+                            height: 1.25rem;
+                            font-size: 1rem;
+                        }
+                        .time {
+                            opacity: 0.7;
+                            height: 1.25rem;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .commetAndInput {
+        padding: 2rem 1rem;
+        .inputContainer {
+            flex-direction: column;
+            height: calc(10vh + 0.5rem);
+
+            .commentInput {
+                width: calc(70vw - 2rem);
+                font-size: 1.2rem;
+                padding: calc((5vh - 1.2rem * 161.8 / 100) / 2) 0 0 1rem;
+                line-height: 161.8%;
+                height: 5vh;
+                overflow: scroll;
+                border: 2px solid colors.$dark-border;
+
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                &:focus {
+                    outline: 1px solid colors.$dark-text-color;
+                }
+            }
+            .addComment {
+                background-color: colors.$dark-second-background;
+                color: colors.$dark-text-color;
+                border-radius: 1rem;
+                font-size: 1rem;
+                width: calc(70vw - 2rem);
+                height: 5vh;
+            }
+        }
+
+        .commentsList {
+            .comment {
+                .commentHeading {
+                    padding: 0.5rem;
+
+                    .avatar {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+
+                    .userAndTime {
+                        gap: 0;
+                        height: 2rem;
+
+                        .user {
+                            font-size: 0.8rem;
+                            height: 1rem;
+                        }
+                        .time {
+                            opacity: 0.7;
+                            height: 1rem;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

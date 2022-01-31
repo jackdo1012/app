@@ -1,0 +1,24 @@
+@use "../../scss/colors";
+@use "../../scss/variables";
+.homepage {
+    background-color: colors.$dark-main-background;
+    color: colors.$dark-text-color;
+    height: variables.$page-height;
+    overflow-y: auto;
+    width: 100vw;
+
+    &::-webkit-scrollbar {
+        width: variables.$scrollbar-width;
+        background-color: colors.$dark-main-background;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: colors.$dark-primary-color;
+    }
+
+    .greeting {
+        text-align: center;
+        padding: 1rem;
+        font-size: 2rem;
+        user-select: text;
+    }
+}

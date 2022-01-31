@@ -1,0 +1,156 @@
+@use "../../scss/colors";
+@use "../../scss/variables";
+
+.userPage {
+    height: variables.$page-height;
+    width: 100vw;
+    background-color: colors.$dark-main-background;
+    color: colors.$dark-text-color;
+    overflow-y: auto;
+    z-index: 10000;
+
+    &::-webkit-scrollbar {
+        width: variables.$scrollbar-width;
+        background-color: colors.$dark-main-background;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: colors.$dark-primary-color;
+    }
+
+    .user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .avatar {
+            width: 20rem;
+            margin: 2rem;
+            height: 20rem;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid colors.$dark-text-color;
+        }
+        .mainUsername {
+            text-align: center;
+            font-size: 5rem;
+        }
+        .followContainer {
+            display: flex;
+            flex-direction: row;
+            width: 40vw;
+            justify-content: space-evenly;
+            .followBtn {
+                color: colors.$dark-text-color;
+                font-size: 1.5rem;
+                border: none;
+                background: none;
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+            }
+            .followed {
+                &::after {
+                    content: "Unfollow";
+                }
+            }
+            .notFollowed {
+                &::after {
+                    content: "Follow";
+                }
+            }
+
+            .unableFollowed {
+                cursor: default;
+                opacity: 0.5;
+                &::after {
+                    content: "Can't follow";
+                }
+            }
+
+            .followingBtn {
+                color: colors.$dark-text-color;
+                font-size: 1.5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+            .followedBtn {
+                color: colors.$dark-text-color;
+                font-size: 1.5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .userPage {
+        .user {
+            .avatar {
+                width: 17rem;
+                height: 17rem;
+            }
+            .mainUsername {
+                text-align: center;
+                font-size: 4rem;
+            }
+            .followContainer {
+                width: 80vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .userPage {
+        .user {
+            .avatar {
+                width: 15rem;
+                height: 15rem;
+            }
+            .mainUsername {
+                text-align: center;
+                font-size: 3.5rem;
+            }
+            .followContainer {
+                width: 80vw;
+                .followBtn {
+                    font-size: 1.4rem;
+                }
+                .followingBtn {
+                    font-size: 1.4rem;
+                }
+                .followedBtn {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .userPage {
+        .user {
+            .avatar {
+                width: 13rem;
+                height: 13rem;
+            }
+            .mainUsername {
+                text-align: center;
+                font-size: 3.25rem;
+            }
+            .followContainer {
+                width: 80vw;
+                .followBtn {
+                    font-size: 1.2rem;
+                }
+                .followingBtn {
+                    font-size: 1.2rem;
+                }
+                .followedBtn {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

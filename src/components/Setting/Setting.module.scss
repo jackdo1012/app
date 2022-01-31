@@ -1,0 +1,119 @@
+@use "../../scss/colors";
+@use "../../scss/variables";
+
+.changeAvatarOverlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100000000;
+}
+.setting {
+    height: variables.$page-height;
+    width: 100vw;
+    background-color: colors.$dark-main-background;
+    z-index: 100;
+    .settingTitle {
+        color: colors.$dark-text-color;
+        font-size: 2rem;
+        padding: 1rem;
+        text-align: center;
+    }
+    .settingAvatarAndName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        .settingAvatar {
+            position: relative;
+            width: 10rem;
+            height: 10rem;
+
+            &:hover {
+                .avatarOverlay {
+                    visibility: visible;
+                }
+            }
+            .avatarOverlay {
+                visibility: hidden;
+                position: absolute;
+                inset: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.8);
+                border-radius: 50%;
+                cursor: pointer;
+                svg {
+                    width: 2rem;
+                    height: 2rem;
+                    color: colors.$dark-text-color;
+                }
+            }
+            .settingAvatarSource {
+                width: 10rem;
+                height: 10rem;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        .settingUsername {
+            color: colors.$dark-text-color;
+            font-size: 5.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 478px) {
+    .setting {
+        .settingAvatarAndName {
+            .settingAvatar {
+                width: 8rem;
+                height: 8rem;
+                .avatarOverlay {
+                    svg {
+                        width: 1.85rem;
+                        height: 1.85rem;
+                    }
+                }
+                .settingAvatarSource {
+                    width: 8rem;
+                    height: 8rem;
+                }
+            }
+            .settingUsername {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .setting {
+        .settingAvatarAndName {
+            .settingAvatar {
+                width: 7rem;
+                height: 7rem;
+                .avatarOverlay {
+                    svg {
+                        width: 1.75rem;
+                        height: 1.75rem;
+                    }
+                }
+                .settingAvatarSource {
+                    width: 7rem;
+                    height: 7rem;
+                }
+            }
+            .settingUsername {
+                font-size: 3rem;
+            }
+        }
+    }
+}

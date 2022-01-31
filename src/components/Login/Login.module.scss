@@ -1,0 +1,78 @@
+@use "../../scss/colors";
+@use "../../scss/variables";
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: variables.$page-height;
+    background-color: colors.$dark-main-background;
+
+    .loginContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .loginTitle {
+            font-size: 3.5rem;
+            color: colors.$dark-text-color;
+        }
+        .username {
+            background-color: colors.$dark-second-background;
+            border: none;
+            width: 100%;
+            height: 3rem;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: colors.$dark-text-color;
+            &:focus {
+                border: 2px solid colors.$dark-primary-color;
+            }
+        }
+        .password {
+            background-color: colors.$dark-second-background;
+            border: none;
+            margin-top: 1rem;
+            width: 100%;
+            height: 3rem;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: colors.$dark-text-color;
+            &:focus {
+                border: 2px solid colors.$dark-primary-color;
+            }
+        }
+
+        .loginBtn {
+            cursor: pointer;
+            background-color: colors.$dark-primary-color;
+            border: none;
+            height: 3rem;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: colors.$dark-main-background;
+            margin: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .signup {
+        color: colors.$dark-text-color;
+        font-size: 1.1rem;
+        a {
+            color: colors.$dark-primary-color;
+            &:visited {
+                color: colors.$dark-primary-color;
+            }
+        }
+    }
+    .error {
+        color: rgb(255, 30, 30);
+        font-size: 1.2rem;
+    }
+}

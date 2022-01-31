@@ -1,0 +1,15 @@
+@use "../../../scss/colors";
+.notFound {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: colors.$dark-main-background;
+    color: colors.$dark-text-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}

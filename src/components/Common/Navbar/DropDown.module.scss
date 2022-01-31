@@ -1,0 +1,35 @@
+@use "../../../scss/variables";
+@use "../../../scss/colors";
+
+.dropDown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: variables.$nav-height;
+    background-color: colors.$dark-second-background;
+    padding: 2rem;
+    z-index: 100;
+    border: 0.1px solid colors.$dark-border;
+    border-top: none;
+
+    .logout {
+        color: colors.$dark-main-background;
+        background-color: colors.$dark-primary-color;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .dropDown {
+        right: 0;
+    }
+}
+@media screen and (max-width: 350px) {
+    .dropDown {
+        right: 0;
+    }
+}

@@ -1,0 +1,85 @@
+@use "../../scss/colors";
+
+.changeAvatarBlock {
+    z-index: 1000000000;
+    background-color: colors.$dark-third-background;
+    border-radius: 1rem;
+    width: clamp(60px, 50vw, 1000px);
+    height: clamp(60px, 30vh, 500px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .changeAvatarTitle {
+        font-size: 2.5rem;
+        color: colors.$dark-text-color;
+        margin-bottom: 1rem;
+    }
+    .avatarInput {
+        height: clamp(40px, 3vh, 100px);
+        width: clamp(20px, calc(50vw - 40px), 960px);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        font-size: 1.3rem;
+        color: colors.$dark-text-color;
+        background-color: colors.$dark-second-background;
+        border: 2px solid colors.$dark-border;
+    }
+    .changeAvatarBtn {
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 0.5rem;
+        font-size: 1.3rem;
+        color: colors.$dark-second-background;
+        background-color: colors.$dark-primary-color;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .changeAvatarBlock {
+        width: 60vw;
+        height: 60vh;
+
+        .avatarInput {
+            width: clamp(20px, calc(60vw - 40px), 960px);
+        }
+        .changeAvatarBtn {
+            margin: 1rem;
+        }
+    }
+}
+@media screen and (max-width: 478px) {
+    .changeAvatarBlock {
+        width: 70vw;
+        height: 70vh;
+
+        .avatarInput {
+            width: clamp(20px, calc(70vw - 40px), 960px);
+        }
+        .changeAvatarBtn {
+            margin: 1rem;
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .changeAvatarBlock {
+        width: 80vw;
+        height: 80vh;
+
+        .avatarInput {
+            width: clamp(20px, calc(80vw - 40px), 960px);
+        }
+        .changeAvatarBtn {
+            margin: 1rem;
+        }
+    }
+}
