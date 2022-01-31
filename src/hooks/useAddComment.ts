@@ -1,6 +1,7 @@
 import axios from "axios";
 import { PostCommentResponse } from "../app/types";
 import SocketIO from "../app/socket";
+import { serverUrl } from "../app/env";
 
 interface AddCommentResponse {
     success: boolean;
@@ -15,7 +16,7 @@ const useAddComment: () => (
     try {
         const res = await axios
             .post<PostCommentResponse>(
-                `${process.env.REACT_APP_SERVER_URL}/posts/comment/${postId}`,
+                `${serverUrl}/posts/comment/${postId}`,
                 { comment: commentContent },
                 {
                     headers: {

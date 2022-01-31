@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Login.module.scss";
 import { LoginResponse } from "../../app/types";
 import { NavLink } from "react-router-dom";
+import { serverUrl } from "../../app/env";
 
 const Login: React.FC = function () {
     const [username, setUsername] = useState<string>("");
@@ -20,13 +21,10 @@ const Login: React.FC = function () {
     const login: (e: React.FormEvent) => void = async (e) => {
         try {
             const response = await axios
-                .post<LoginResponse>(
-                    `${process.env.REACT_APP_SERVER_URL}/auth/login`,
-                    {
-                        username,
-                        password,
-                    },
-                )
+                .post<LoginResponse>(`${serverUrl}/auth/login`, {
+                    username,
+                    password,
+                })
                 .then((data) => data.data);
 
             if (response.success === true) {

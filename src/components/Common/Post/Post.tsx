@@ -157,7 +157,7 @@ const Post: React.FC<Props> = memo(function ({ postsList: postsListProps }) {
                 const target = e.currentTarget;
                 const res = await axios
                     .get<ToggleLikeResponse>(
-                        `${process.env.REACT_APP_SERVER_URL}/posts/toggleLike/${postId}`,
+                        `${serverUrl}/posts/toggleLike/${postId}`,
                         {
                             headers: {
                                 Authorization: `Bearer ${token}`,

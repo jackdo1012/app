@@ -16,6 +16,7 @@ import { Notifications, Notification } from "./app/types";
 import axios from "axios";
 import { increaseByOne, setAmount } from "./slices/activeNotification";
 import SocketIO from "./app/socket";
+import { serverUrl } from "./app/env";
 
 interface NotificationsResponse {
     success: boolean;
@@ -54,7 +55,7 @@ const App: React.FC = function () {
         (async () => {
             try {
                 const authStatus = await axios
-                    .get(`${process.env.REACT_APP_SERVER_URL}/auth`, {
+                    .get(`${serverUrl}/auth`, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem(
                                 "token",
@@ -67,16 +68,13 @@ const App: React.FC = function () {
                     dispatch(setUsername(authStatus.username));
 
                 const notificationResponse = await axios
-                    .get<NotificationsResponse>(
-                        `${process.env.REACT_APP_SERVER_URL}/notification`,
-                        {
-                            headers: {
-                                Authorization: `Bearer ${localStorage.getItem(
-                                    "token",
-                                )}`,
-                            },
+                    .get<NotificationsResponse>(`${serverUrl}/notification`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                "token",
+                            )}`,
                         },
-                    )
+                    })
                     .then((data) => data.data)
                     .catch((err) => err.response.data);
                 const numberOfNotRead: number = notificationResponse.success

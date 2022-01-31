@@ -9,6 +9,7 @@ import SocketIO from "../../../app/socket";
 import { useNavigate } from "react-router-dom";
 import { CommentsList, GetCommentResponse } from "../../../app/types";
 import useAddComment from "../../../hooks/useAddComment";
+import { serverUrl } from "../../../app/env";
 
 interface CommentProps {
     postId: string;
@@ -27,9 +28,7 @@ const Comment: React.FC<CommentProps> = memo(function ({ postId, close }) {
 
     const updateCommentAndAvatar = async function () {
         const newCommentList = await axios
-            .get<GetCommentResponse>(
-                `${process.env.REACT_APP_SERVER_URL}/posts/comment/${postId}`,
-            )
+            .get<GetCommentResponse>(`${serverUrl}/posts/comment/${postId}`)
             .then((data) => data.data.comments?.commentsList);
         newCommentList?.sort(
             (a, b) =>

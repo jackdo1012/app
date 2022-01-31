@@ -1,4 +1,5 @@
 import { io, Socket } from "socket.io-client";
+import { serverUrl } from "./env";
 
 type SocketIOClient = Socket | undefined;
 class SocketIO {
@@ -12,38 +13,29 @@ class SocketIO {
 
     // Init
     public initPrivatePost(): void {
-        this.privatePostSocket = io(
-            `${process.env.REACT_APP_SERVER_URL}/post`,
-            {
-                path: "/private/",
-                auth: { token: localStorage.getItem("token") },
-            }
-        );
+        this.privatePostSocket = io(`${serverUrl}/post`, {
+            path: "/private/",
+            auth: { token: localStorage.getItem("token") },
+        });
     }
 
     public initPrivateFollow(): void {
-        this.privateFollowSocket = io(
-            `${process.env.REACT_APP_SERVER_URL}/follow`,
-            {
-                path: "/private/",
-                auth: { token: localStorage.getItem("token") },
-            }
-        );
+        this.privateFollowSocket = io(`${serverUrl}/follow`, {
+            path: "/private/",
+            auth: { token: localStorage.getItem("token") },
+        });
     }
 
     public initPrivateComment(): void {
-        this.privateCommentSocket = io(
-            `${process.env.REACT_APP_SERVER_URL}/comment`,
-            {
-                path: "/private/",
-                auth: { token: localStorage.getItem("token") },
-            }
-        );
+        this.privateCommentSocket = io(`${serverUrl}/comment`, {
+            path: "/private/",
+            auth: { token: localStorage.getItem("token") },
+        });
     }
     public initPublicLike(postIdList: string[]): void {
         const list = JSON.stringify(postIdList);
 
-        this.publicLikeSocket = io(`${process.env.REACT_APP_SERVER_URL}/like`, {
+        this.publicLikeSocket = io(`${serverUrl}/like`, {
             path: "/public/",
             extraHeaders: {
                 rooms: list,
@@ -52,27 +44,21 @@ class SocketIO {
     }
     public initPublicComment(postIdList: string[]): void {
         const list = JSON.stringify(postIdList);
-        this.publicCommentSocket = io(
-            `${process.env.REACT_APP_SERVER_URL}/comment`,
-            {
-                path: "/public/",
-                extraHeaders: {
-                    rooms: list,
-                },
-            }
-        );
+        this.publicCommentSocket = io(`${serverUrl}/comment`, {
+            path: "/public/",
+            extraHeaders: {
+                rooms: list,
+            },
+        });
     }
     public initPublicFollow(user: string): void {
-        this.publicFollowSocket = io(
-            `${process.env.REACT_APP_SERVER_URL}/follow`,
-            {
-                path: "/public/",
-                auth: { token: localStorage.getItem("token") },
-                extraHeaders: {
-                    rooms: JSON.stringify(user),
-                },
-            }
-        );
+        this.publicFollowSocket = io(`${serverUrl}/follow`, {
+            path: "/public/",
+            auth: { token: localStorage.getItem("token") },
+            extraHeaders: {
+                rooms: JSON.stringify(user),
+            },
+        });
     }
 
     // Getters
